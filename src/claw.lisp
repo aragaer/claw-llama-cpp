@@ -1,14 +1,19 @@
-(uiop:define-package :llama-cpp
-  (:use :cl))
+(cl:defpackage :llama-cpp
+  (:use :cl)
+  (:export))
 
-(claw:defwrapper (:claw-llama-cpp/wrapper
+(cl:in-package :llama-cpp)
+
+(claw:defwrapper (:claw-llama-cpp
+                  (:system :claw-llama-cpp/wrapper)
                   (:headers "llama.h")
                   (:includes :llama-cpp-includes)
                   (:targets ((:and :x86-64 :linux) "x86_64-pc-linux-gnu"))
-                  (:persistent :claw-llama-cpp-bindings
-                   :asd-path "../claw-llama-cpp-bindings.asd"
-                   :bindings-path "../bindings/")
-                  (:include-definitions "^(llama|LLAMA)_\\w+"))
+                  (:persistent t
+                   :bindings-path "../bindings/"
+                   :depends-on (:claw-utils))
+                  (:language :c++)
+                  (:include-definitions "llama_backend_init"))
   :in-package :%llama-cpp
   :trim-enum-prefix t
   :recognize-bitfields t
