@@ -1,7 +1,8 @@
 #!/bin/sh
-LIBRESECT_PATH="Projects/libresect/build/resect/libresect.so"
+LIBRESECT_PATH=Projects/libresect/build/resect/libresect.so
+CCL_PATH=~/Projects/ccl/lx86cl64
 
-exec ~/Projects/ccl/lx86cl64 -Q -n -b <<EOF
+exec "$CCL_PATH" -Q -n -b <<EOF
 #-quicklisp
 (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))))
   (when (probe-file quicklisp-init)
