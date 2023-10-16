@@ -12,5 +12,7 @@
   :trim-enum-prefix t
   :recognize-bitfields t
   :recognize-strings t
+  :with-adapter (:static
+                 :path "src/lib/adapter.c")
   :symbolicate-names (:in-pipeline
                       (:by-removing-prefixes "llama_" "LLAMA_")))

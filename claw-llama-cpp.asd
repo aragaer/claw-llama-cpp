@@ -6,7 +6,6 @@
   :license "MIT"
   :depends-on (:claw-llama-cpp-bindings))
 
-
 (asdf:defsystem :claw-llama-cpp/wrapper
   :description "Wrapper for llama.cpp"
   :version "0.0.1"
