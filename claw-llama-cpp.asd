@@ -4,7 +4,9 @@
   :author "aragaer"
   :mailto "aragaer@gmail.com"
   :license "MIT"
-  :depends-on (:claw-llama-cpp-bindings))
+  :depends-on (:cffi :claw-llama-cpp-bindings)
+  :components ((:file "src/package")
+               (:file "src/llama")))
 
 (asdf:defsystem :claw-llama-cpp/wrapper
   :description "Wrapper for llama.cpp"
